@@ -2,16 +2,30 @@ import PropTypes from 'prop-types';
 import css from './FeedbackOptions.module.css';
 
 
-export const FeedbackOptions = ({ feedbacks, onLeaveFeedback }) => {
-// feedbacks = [{ id:'good', title: 'good' }, { id:'neutral', title: 'neutral' }, { id: 'bad', title: 'bad' }];
-    return <ul className={css.list}>{feedbacks.map(feedback => (<li key={feedback.id} className={css.item}><button className={css.button} name={feedback.title} type='button' onClick={onLeaveFeedback}>{feedback.title}</button></li>))}
+export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+
+    return <ul className={css.list}>
+        {options.map(feedback => (
+        <li key={feedback} className={css.item}>
+            <button className={css.button} name={feedback} 
+            type='button' 
+            onClick={() => onLeaveFeedback (feedback)}>
+                {feedback.title}
+           
+            </button>
+            </li>))}
             </ul>
-}
+};
+  
+
+
+
+
 
 FeedbackOptions.propTypes = {
+    options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
     onLeaveFeedback: PropTypes.func.isRequired,
-    feedbacks: PropTypes.exact({
-        id: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-    })
+    
 }
+
+
