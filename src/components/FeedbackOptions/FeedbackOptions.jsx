@@ -10,7 +10,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
             <button className={css.button} name={feedback} 
             type='button' 
             onClick={() => onLeaveFeedback (feedback)}>
-                {feedback.title}
+                {feedback}
            
             </button>
             </li>))}

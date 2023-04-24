@@ -32,7 +32,9 @@ render() {
     return (
         <div className={css.container}>
             <Section title="Please leave feedback">
-                <FeedbackOptions options={[{ id:'good', title: 'good' }, { id:'neutral', title: 'neutral' }, { id: 'bad', title: 'bad' }]} onLeaveFeedback={this.handleClick}/>
+                <FeedbackOptions
+                 options={Object.keys(this.state)} 
+                 onLeaveFeedback={this.handleClick}/>
             </Section>
 
             <Section title="Statistics">
